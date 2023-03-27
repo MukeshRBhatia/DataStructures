@@ -209,6 +209,14 @@ public class SingleLinkedList {
 	    return temp1;
 	}
 	
+	/*
+	 * The method initializes two pointers, slow and fast, both pointing to the head of the LinkedList.
+     * It then moves the fast pointer k steps ahead in the LinkedList. If fast becomes null at any point during this process, it means that k is out of bounds (greater than the length of the LinkedList), so the method returns null.
+     * After moving the fast pointer k steps ahead, the method enters a while loop. This loop continues until the fast pointer reaches the end of the LinkedList (i.e., fast becomes null).
+     * Inside the while loop, both the slow and fast pointers move one step at a time. Since the fast pointer is already k steps ahead of the slow pointer, when the fast pointer reaches the end of the LinkedList, the slow pointer will be at the kth node from the end.
+     * Finally, the method returns the slow pointer, which now points to the kth node from the end of the LinkedList.
+	 *  
+	 *  */
 	public Node findKthFromEnd(int k) {
         Node slow = this.head;
         Node fast = this.head;
