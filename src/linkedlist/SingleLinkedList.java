@@ -193,7 +193,22 @@ public class SingleLinkedList {
 			temp = after;
 		}
 	}
-	
+	/**
+	 * public ListNode reverseList(ListNode head) {
+        if(head == null) return null;
+        if(head.next == null) return head;
+        ListNode curr = head;
+        ListNode prev = null;
+        while(curr != null) {
+            ListNode nxt = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        return prev;   
+    }
+	 * 
+	 */
 	
 	// finds middle node without considering the length variable
 	// makes 2 variables.
@@ -232,4 +247,59 @@ public class SingleLinkedList {
         }
         return slow;
     }
+	
+	// Given a linked list A, swap every two adjacent nodes and return its head.
+    // NOTE: Your algorithm should use only constant space. You may not modify the values in the list; only nodes themselves can be changed.
+	public static Node swapPairs(SingleLinkedList A) {
+        if(A.head.next == null) return A.head;
+        
+        Node head = A.head;
+        Node t1 = A.head;
+        Node t2 = A.head.next;
+        head = head.next;
+        
+        //A>B>C>D>E
+        while(t2 != null){
+        	System.out.print(t1 + " " + t2);
+            t2.next = t1;
+            t1.next = t2.next;
+            t1 = t1.next;
+            t2 = t1.next;
+        }
+        return head;
+    }
+	
+	public boolean hasLoop(){
+	    Node fast = head;
+	    Node slow = head;
+	    while(fast.next != null) {
+	        slow = slow.next;
+	        fast = fast.next.next;
+	        if(slow == fast) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+	
+	// good to visualize
+	public void removeDuplicates() {
+        Node temp = head;
+        while(temp.next != null) {
+            Node temp1 = temp;
+            while(temp1.next != null) {
+                if(temp.value == temp1.next.value) {
+                    temp1.next = temp1.next.next;
+                } else { // chances that we miss the next value if the if condition is correct.
+                temp1 = temp1.next;
+            }
+                }
+            temp = temp.next;
+        }
+    } 
+	
+	// reverses the nodes of the list between indexes m and n (inclusive).
+	
+	
+	//
 }

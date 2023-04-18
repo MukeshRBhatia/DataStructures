@@ -1,5 +1,7 @@
 package linkedlist;
 
+import linkedlist.SingleLinkedList.Node;
+
 public class SinglyLinkedListUtility {
 	
 	public static void main(String[] args) {
@@ -42,6 +44,29 @@ public class SinglyLinkedListUtility {
 		ll.printLinkedList();
 		ll.reverse();
 		ll.printLinkedList();
+		
+		System.out.print("###swap pairs");
+		SingleLinkedList ll2 = new SingleLinkedList(10);
+		ll2.append(23);
+		ll2.append(88);
+		ll2.append(230);
+		ll2.append(230);
+		ll2.append(808);
+		ll2.append(231);
+		ll2.append(8448);
+		ll2.append(231);
+		ll2.append(231);
+		ll2.append(231);
+		///Node newList = SingleLinkedList.swapPairs(ll2);
+		//Node temp = newList;
+		//while(temp != null) {
+		//	System.out.print(temp.value +"->");
+		//	temp = temp.next;
+		//}	
+		ll2.printLinkedList();
+		System.out.println();
+		ll2.removeDuplicates();
+		ll2.printLinkedList();
 	}
 
 }
